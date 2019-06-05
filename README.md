@@ -1,4 +1,4 @@
-# Cloud Pak for Integration - Helm Chart Installation Lab
+# IBM Cloud Pak for Integration - Helm Chart Installation Lab
 
 ## Familiarization with the Integration Pak[](#familiarization-with-the-integration-pak)
 
