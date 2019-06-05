@@ -444,7 +444,7 @@ Copy and paste the link for the OpenAPI document into a browser window and then 
 3.  Click on `Sandbox`
 4.  Click on `Settings` from left menu
 5.  Click on `Gateway Services`
-6.  Click `edit` and choose `Gateway`.
+6.  Click `Edit` and choose the `Gateway` service you configured previously and click on `Save`.
 7.  From the API Manager homescreen, use the menu on the left to navigate to `Develop`.
 8.  On the APIs and Products screen click `add` -> `Api`
 9.  Select the `From Existing API Service` radio button option. Click `Next`.
