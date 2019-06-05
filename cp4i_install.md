@@ -1,8 +1,8 @@
 # Cloud Pak for Integration Install Lab
 
-## Familiarization with the Cloud Integration Platform[](#familiarization-with-the-cloud-integration-platform)
+## Familiarization with the Integration Pak[](#familiarization-with-the-integration-pak)
 
-The Cloud Integration Platform (CIP) is built on top of IBM Cloud Private. This lab guide is meant to give you an overview of the capabilities of the platform, and get some hands on time with setting up your own environment for the purpose of creating your own demo environment.
+The IBM Cloud Pak for Integration (ICP4I) is built on top of IBM Cloud Private. This lab guide is meant to give you an overview of the capabilities of the platform, and get some hands on time with setting up your own environment for the purpose of creating your own demo environment.
 
 This lab guide assumes some familiarity with IBM Cloud Private, Docker & Kubernetes, as well as Helm.
 
@@ -11,8 +11,6 @@ There are two primary components of CIP:
 **IBM Cloud Private (ICP)** - An application platform for developing and managing on-premises, containerized applications. It is an integrated environment for managing containers that includes the container orchestrator Kubernetes, a private image repository, a management console, and monitoring frameworks. In this particular boot camp, ICP is deployed on Softlayer, using Skytap as the primary operational interface.
 
 **Platform Navigator** – an application that is built to run on top of IBM Cloud Private that provides a primary user interface where instances of App Connect Enterprise (ACE), API Connect (APIC), Event Streams and MQ Advanced can be managed from a single place. It is automatically deployed with the CIP Bundle.
-
-As a convention for these labs, a <span style="color:red">**red box**</span> will be used to identify a particular area, and when information is to be entered and/or an action is to be taken, it will be in **bold** characters. <span style="color:red">**Red arrows or lines**</span> may be used to indicate specific items that need to be noted as part of the lab
 
 A number of sections will be labeled “Key Idea” or “Key Concept”. Be sure to review these sections when you come across them, as they will explain important items as it relates to the lab content.
 
@@ -33,9 +31,7 @@ Part two you will be deploying some basic assets to your newly created environme
 1.  You have been provided a pre-installed environment of the Cloud Integration Platform. It includes a vanilla ICP 3.1.1 install with the CIP Platform Navigator installed and all of the base container images that make up CIP.
 2.  The environment you are using consists of 8 different nodes 7 of which are ICP Nodes and one is a developer image that you will be using to access the ICP User Interfaces. You can access this VM directly using the Skytap interface to use the X-Windows based components.
 3.  **VERY IMPORTANT** It is very important you do not suspend your lab environment. We have seen cases when the environment goes into suspend mode, the Rook-Ceph shared storage gets corrupted. Also it is a good practice that you shut down ICP before powering down your enviroment. A script has been included to handle that for you that will be explained in the coming sections. When you power down your environment, you can safely use the `power off` option as the shared storage can interfere with the normal graceful shutdown method. So far using power off hasn’t caused any problems that we are aware of.
-4.  You may also able to SSH into your environment. You will find out the exact address to SSH to in your Skytap Environment window under `networking` and `published services`. The Published Services set up for you will be for the SSH Port (22) under the `CIP Master` node. The published service will look something like `services-uscentral.skytap.com:10000`. Your environment will have a different port on it. You can then SSH to to the machine from your local machine.
-5.  Additionally, you can access the machine direct via the Skytap UI. This is functional, but can be cumbersome to work with as its not easy to copy and paste into and out of Skytap, especially for the non X-Windows based environments.
-6.  Password-less SSH has also been enabled between the Master node and the other nodes in the environment. **note** a table with the environment configuration is provided below. Credentials for each machine are `skytap`/`A1rb0rn3`.
+4.  Credentials for each machine are `skytap`/`A1rb0rn3`.
 
 <table>
 
@@ -268,7 +264,7 @@ There are plenty other commands to use, but these are by far the most common the
 11.  Uncheck the box entitled `Production usage`
 12.  Set the `Replica count` to the value of `1`
 13.  Find the `Image Pull Secret` line. Set that to `sa-ace` (This is pre-defined for you, normally, you would need to create this).
-14.  For the `Hostname of the ingress proxy to be configured` section. Change the default value provided to `ace.10.0.0.1.nip.io`.
+14.  For the `Hostname of the ingress proxy to be configured` section. Change the default value provided to `mycluster.icp`.
 15.  **IMPORTANT** - Find the `Enable Persistant Storage` Section. This box must be unticked (disabled). In order to support persistant storage, Gluster storage must be used (Ceph is not supported with ACE). Implementing/Using Gluster Storage with CIP beyond the scope of this lab.
 16.  Similarly uncheck the box for `Use dynamic provisioning`
 17.  Leave the other default values in the chart. Scroll down and Click `Install` button on lower right portion of the screen.
