@@ -446,15 +446,15 @@ Copy and paste the link for the OpenAPI document into a browser window and then 
 5.  Click on `Gateway Services`
 6.  Click `Edit` and choose the `Gateway` service you configured previously and click on `Save`.
 7.  From the API Manager homescreen, use the menu on the left to navigate to `Develop`.
-8.  On the APIs and Products screen click `add` -> `Api`
-9.  Select the `From Existing API Service` radio button option. Click `Next`.
+8.  On the APIs and Products screen click `Add` -> `Api`
+9.  Select the `From Existing OpenAPI Service` radio button option. Click `Next`.
 10.  Click the `browse` button to navigate to the `Tutorial_swagger.json` file on your file system you had saved previously.
 11.  Click `Next`
 12.  Review the settings then click `Next` twice (do not activate the API yet).
 13.  Review the summary to ensure the API was created properly, and then click the `Edit API` button.
 14.  Click the `Assemble` tab to bring up the Assembly editor.
-15.  Click the Play button to start the Test tool.
-16.  Click the blue `Activate API` button to deploy.
+15.  Click the `Play` button to start the Test tool.
+16.  Click the blue `Make API Online` button to deploy.
 17.  Select the `get /UserNumber` operation.
 18.  Scroll down to the `Parameters` section and find the `UserNumber` - replace what is there with the number `1`.
 19.  Scroll down and click the `Invoke` button. The first time you invoke this, it will bring up a CORS warning. Copy and paste the link for the API into a new browser tab. It will return a 401 error for authorization, but this will load up the cert.
