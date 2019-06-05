@@ -1,4 +1,4 @@
-# Cloud Pak for Integration Helm Chart Installation Lab
+# Cloud Pak for Integration - Helm Chart Installation Lab
 
 ## Familiarization with the Integration Pak[](#familiarization-with-the-integration-pak)
 
@@ -6,11 +6,11 @@ The IBM Cloud Pak for Integration (ICP4I) is built on top of IBM Cloud Private. 
 
 This lab guide assumes some familiarity with IBM Cloud Private, Docker & Kubernetes, as well as Helm.
 
-There are two primary components of CIP:
+There are two primary components of ICP4I:
 
 **IBM Cloud Private (ICP)** - An application platform for developing and managing on-premises, containerized applications. It is an integrated environment for managing containers that includes the container orchestrator Kubernetes, a private image repository, a management console, and monitoring frameworks. In this particular boot camp, ICP is deployed on Softlayer, using Skytap as the primary operational interface.
 
-**Platform Navigator** – an application that is built to run on top of IBM Cloud Private that provides a primary user interface where instances of App Connect Enterprise (ACE), API Connect (APIC), Event Streams and MQ Advanced can be managed from a single place. It is automatically deployed with the CIP Bundle.
+**Platform Navigator** – an application that is built to run on top of IBM Cloud Private that provides a primary user interface where instances of App Connect Enterprise (ACE), API Connect (APIC), Event Streams and MQ Advanced can be managed from a single place. It is automatically deployed with the ICP4I Bundle.
 
 A number of sections will be labeled “Key Idea” or “Key Concept”. Be sure to review these sections when you come across them, as they will explain important items as it relates to the lab content.
 
@@ -18,7 +18,7 @@ A number of sections will be labeled “Key Idea” or “Key Concept”. Be sur
 
 This lab is broken up into two key parts.
 
-**Part One**: Create and Deploy your CIP Applications
+**Part One**: Create and Deploy your ICP4I Applications
 
 **Part Two**: Deploy Integration Assets
 
@@ -26,9 +26,9 @@ Part one contains the hands on section of the lab where you will get acquainted 
 
 Part two you will be deploying some basic assets to your newly created environment
 
-## Part One: Create and Deploy your CIP Applications[](#part-one-create-and-deploy-your-cip-applications)
+## Part One: Create and Deploy your ICP4I Applications[](#part-one-create-and-deploy-your-cip-applications)
 
-1.  You have been provided a pre-installed environment of the Cloud Integration Platform. It includes a vanilla ICP 3.1.1 install with the CIP Platform Navigator installed and all of the base container images that make up CIP.
+1.  You have been provided a pre-installed environment of the Cloud Integration Platform. It includes a vanilla ICP 3.1.1 install with the ICP4I Platform Navigator installed and all of the base container images that make up ICP4I.
 2.  The environment you are using consists of 8 different nodes 7 of which are ICP Nodes and one is a developer image that you will be using to access the ICP User Interfaces. You can access this VM directly using the Skytap interface to use the X-Windows based components.
 3.  **VERY IMPORTANT** It is very important you do not suspend your lab environment. We have seen cases when the environment goes into suspend mode, the Rook-Ceph shared storage gets corrupted. Also it is a good practice that you shut down ICP before powering down your enviroment. A script has been included to handle that for you that will be explained in the coming sections. When you power down your environment, you can safely use the `power off` option as the shared storage can interfere with the normal graceful shutdown method. So far using power off hasn’t caused any problems that we are aware of.
 4.  Credentials for each machine are `skytap`/`A1rb0rn3`.
@@ -265,7 +265,7 @@ There are plenty other commands to use, but these are by far the most common the
 12.  Set the `Replica count` to the value of `1`
 13.  Find the `Image Pull Secret` line. Set that to `sa-ace` (This is pre-defined for you, normally, you would need to create this).
 14.  For the `Hostname of the ingress proxy to be configured` section. Change the default value provided to `mycluster.icp`.
-15.  **IMPORTANT** - Find the `Enable Persistant Storage` Section. This box must be unticked (disabled). In order to support persistant storage, Gluster storage must be used (Ceph is not supported with ACE). Implementing/Using Gluster Storage with CIP beyond the scope of this lab.
+15.  **IMPORTANT** - Find the `Enable Persistant Storage` Section. This box must be unticked (disabled). In order to support persistant storage, Gluster storage must be used (Ceph is not supported with ACE). Implementing/Using Gluster Storage with ICP4I beyond the scope of this lab.
 16.  Similarly uncheck the box for `Use dynamic provisioning`
 17.  Leave the other default values in the chart. Scroll down and Click `Install` button on lower right portion of the screen.
 18.  Once you see the `Installation Started` pop up. You can validate the progress via the `Helm Releases` in the ICP Portal or via the command line.
@@ -285,7 +285,7 @@ If you can see the App Connect Enterprise portal, then you are are done with thi
 
 ## MQ[](#mq)
 
-1.  For MQ we will not be using the default chart that is linked to the Platform Navigator. What comes with the CIP is the production version of the chart that requires the installer to configure everything, which is cumbersome if you are just looking to spin up an environment quickly. Fortunately, ICP comes with a chart that is designed specifically for developer types that comes with a pre-configured queue manager, queues, server channels and the like.
+1.  For MQ we will not be using the default chart that is linked to the Platform Navigator. What comes with the ICP4I is the production version of the chart that requires the installer to configure everything, which is cumbersome if you are just looking to spin up an environment quickly. Fortunately, ICP comes with a chart that is designed specifically for developer types that comes with a pre-configured queue manager, queues, server channels and the like.
 2.  Before continuing you will need to delete the existing MQ instance deployed on the platform. Just like in the previous section, using the ICP UI (`https://10.0.0.1:8443`) go to the top left hamburger config menu select `Workloads` -> `Helm Releases`. Search for existing MQ deployments by using the Search widget and the `mq` keyword. Find the `action` icon on the far right (looks like 3 dots) of the returned instance. Click that and then select `Delete`. If you get an `ESOCKETTIMEDOUT` error you can ignore that. Verify that the deployment is gone by refreshing your browser.
 3.  Using the top menu, right hand side, click on `Catalog`
 4.  Using the context based search filter type in `mq`into the filter bar. Select the `ibm-mqadvanced-server-dev` chart. You can scroll down a bit to peruse the pre-requisites.
@@ -462,6 +462,6 @@ Copy and paste the link for the OpenAPI document into a browser window and then 
 
 ### Conclusion[](#conclusion)
 
-You have completed the initial CIP Labs by taking a base ICP install and then imported some basic integration assets and exposed that as an API running on the configuration. The key value is having the single platform that runs all of the capability that can be managed easily, user the power of Kubernetes.
+You have completed the initial ICP4I Labs by taking a base ICP install and then imported some basic integration assets and exposed that as an API running on the configuration. The key value is having the single platform that runs all of the capability that can be managed easily, user the power of Kubernetes.
 
 **End of Lab**
