@@ -465,31 +465,3 @@ Copy and paste the link for the OpenAPI document into a browser window and then 
 You have completed the initial CIP Labs by taking a base ICP install and then imported some basic integration assets and exposed that as an API running on the configuration. The key value is having the single platform that runs all of the capability that can be managed easily, user the power of Kubernetes.
 
 **End of Lab**
-
-</div>
-
-* * *
-
-<footer>
-
-<div class="row">
-
-<div class="col-lg-6 footer-left">©2019 IBM. All rights reserved.  
-Site last generated: May 16, 2019  
-</div>
-
-<div class="col-lg-6 footer-right">
-
-![IBM](cip_helm_install_files/ibm-logo-small.png)
-
-</div>
-
-</div>
-
-</footer>
-
-</div>
-
-</div>
-
-</div>
