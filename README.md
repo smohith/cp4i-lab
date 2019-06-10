@@ -31,7 +31,7 @@ Part two you will be deploying some basic assets to your newly created environme
 1.  You have been provided a pre-installed environment of the Cloud Integration Platform. It includes a vanilla ICP 3.1.1 install with the ICP4I Platform Navigator installed and all of the base container images that make up ICP4I.
 2.  The environment you are using consists of 8 different nodes 7 of which are ICP Nodes and one is a developer image that you will be using to access the ICP User Interfaces. You can access this VM directly using the Skytap interface to use the X-Windows based components.
 3.  **VERY IMPORTANT** It is very important you do not suspend your lab environment. We have seen cases when the environment goes into suspend mode, the Rook-Ceph shared storage gets corrupted. Also it is a good practice that you shut down ICP before powering down your enviroment. A script has been included to handle that for you that will be explained in the coming sections. When you power down your environment, you can safely use the `power off` option as the shared storage can interfere with the normal graceful shutdown method. So far using power off hasn’t caused any problems that we are aware of.
-4.  Credentials for each machine are `skytap`/`A1rb0rn3`.
+4.  Credentials for each ICP node is `skytap`/`A1rb0rn3` and for the Developer machine `student`/`Passw0rd!`.
 
 <table>
 
